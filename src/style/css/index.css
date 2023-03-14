@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;/*# sourceMappingURL=index.css.map */
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  color: #fefefe;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vh;
+  height: 100vh;
+  background-image: radial-gradient(#198cd3, #4d1f47);
+}/*# sourceMappingURL=index.css.map */
