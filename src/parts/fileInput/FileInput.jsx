@@ -10,8 +10,10 @@ const FileInput = ({ fileStorage }) => {
   };
 
   const addButtonHandler = () => {
-    setarrayFiles(oldArrayFiles=>[...oldArrayFiles,uploadedfile]);
-    setuploadedfile("");
+    if(uploadedfile){
+      setarrayFiles(oldArrayFiles=>[...oldArrayFiles,uploadedfile]);
+      setuploadedfile("");
+    }
   };
 
   return (
