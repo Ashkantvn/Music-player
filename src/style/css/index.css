@@ -6,6 +6,10 @@
   color: #fefefe;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   display: flex;
   align-items: flex-start;
