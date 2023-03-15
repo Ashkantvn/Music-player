@@ -11,13 +11,20 @@ const Songs = () => {
   const playList = useCallback(() => {
     const songsInformations = [];
     for (let i = 0; i < arrayFiles.length; i++) {
-      songsInformations.push(URL.createObjectURL(arrayFiles[i]));
+      songsInformations.push({
+        title:arrayFiles[i]?.name,
+        url:URL.createObjectURL(arrayFiles[i]),
+        type:arrayFiles[i]?.type
+      });
+      console.log(songsInformations);
     }
     return songsInformations;
   }, [arrayFiles]);
 
+
+
   const mappedPlaylist = playList().map((songinformation) => {
-    return <MusicControl key={songinformation} songinformation={songinformation} />;
+    return <MusicControl key={songinformation.url} songinformation={songinformation} />;
   });
 
   
@@ -31,7 +38,7 @@ const Songs = () => {
         </div>
       </header>
 
-      <div className=" h-56 grid lg:grid-cols-3 md:grid-cols-2  gap-9">{mappedPlaylist}</div>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-9">{mappedPlaylist}</div>
     </>
   );
 };
