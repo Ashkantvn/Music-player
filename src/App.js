@@ -3,7 +3,7 @@ import Songs from "./pages/Songs";
 
 const App = () => {
   return (
-    <div>
+    <div className=" container">
       <Songs/>
     </div>
   );

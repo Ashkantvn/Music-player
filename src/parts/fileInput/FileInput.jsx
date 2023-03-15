@@ -1,4 +1,5 @@
 import React from "react";
+import {HiUpload} from "react-icons/hi"
 
 const FileInput = ({ fileStorage }) => {
   const { uploadedfile, setuploadedfile,setarrayFiles } = fileStorage;
@@ -15,8 +16,9 @@ const FileInput = ({ fileStorage }) => {
 
   return (
     <>
-      <input type="file" onChange={inputHandler} />
-      <button onClick={addButtonHandler}>Add</button>
+      <label htmlFor="files" className="flex items-center"><HiUpload/><span className=" ml-1">Choose a file</span></label>
+      <input id="files" className=" hidden" type="file" onChange={inputHandler} />
+      <button className="my-6" onClick={addButtonHandler}>Add</button>
     </>
   );
 };

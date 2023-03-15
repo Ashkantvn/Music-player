@@ -23,15 +23,15 @@ const Songs = () => {
   
   return (
     <>
-      <header>
-        <h1>Songs</h1>
+      <header className="flex flex-col my-24 items-center">
+        <h1 className="font-bold">Songs</h1>
 
-        <div>
+        <div className="my-9 flex flex-col items-center">
           <FileInput fileStorage={{uploadedfile,setuploadedfile,setarrayFiles}}/>
         </div>
       </header>
 
-      <div>{mappedPlaylist}</div>
+      <div className=" h-56 grid lg:grid-cols-3 md:grid-cols-2  gap-9">{mappedPlaylist}</div>
     </>
   );
 };
