@@ -1,60 +1,37 @@
 import React, { useCallback, useState } from "react";
+import MusicControl from "../parts/musicControl/MusicControl";
+import FileInput from "../parts/fileInput/FileInput";
 
 const Songs = () => {
   const [uploadedfile, setuploadedfile] = useState("");
-  const [arrayFiles, setarrayFiles] = useState([]);
+  const [arrayFiles,setarrayFiles] = useState([]);
 
 
-
-
-  
+  // Create and map the playlist 
   const playList = useCallback(() => {
-    const songsLists = [];
+    const songsInformations = [];
     for (let i = 0; i < arrayFiles.length; i++) {
-      songsLists.push(URL.createObjectURL(arrayFiles[i]));
+      songsInformations.push(URL.createObjectURL(arrayFiles[i]));
     }
-    return songsLists;
+    return songsInformations;
   }, [arrayFiles]);
 
-
-
-
-  const a = playList().map((song) => {
-    return (
-      <audio key={song} controls>
-        <source src={song} />
-        Your browser does not support audio tag
-      </audio>
-    );
+  const mappedPlaylist = playList().map((songinformation) => {
+    return <MusicControl key={songinformation} songinformation={songinformation} />;
   });
 
-
-
+  
   return (
     <>
-      <div>
+      <header>
         <h1>Songs</h1>
+
         <div>
-          <input
-            type="file"
-            onChange={(e) => {
-              setuploadedfile(
-                (uploadedfile) => (uploadedfile = e.target.files[0])
-              );
-            }}
-          />
-          <button
-            onClick={() => {
-              arrayFiles.push(uploadedfile);
-              setuploadedfile("");
-            }}
-          >
-            Add
-          </button>
+          <FileInput fileStorage={{uploadedfile,setuploadedfile,setarrayFiles}}/>
         </div>
-      </div>
-      {/* <div>{mappedPlayList}</div> */}
-      {a}
+      </header>
+
+      <div>{mappedPlaylist}</div>
     </>
   );
 };
