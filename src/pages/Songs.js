@@ -16,7 +16,6 @@ const Songs = () => {
         url:URL.createObjectURL(arrayFiles[i]),
         type:arrayFiles[i]?.type
       });
-      console.log(songsInformations);
     }
     return songsInformations;
   }, [arrayFiles]);
